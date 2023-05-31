@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import date
-
 from django.urls import reverse
 
 
@@ -13,6 +12,7 @@ class FixedCosts(models.Model):
 
     class Meta:
         verbose_name_plural = "Fixed Costs"
+        ordering = ["-sume"]
 
     def __str__(self) -> str:
         return self.title
@@ -32,12 +32,13 @@ class VariableCosts(models.Model):
 
     class Meta:
         verbose_name_plural = "Variable Costs"
+        ordering = ["date"]
 
     def __str__(self) -> str:
         return self.title
 
     # def get_absolute_url(self):
-    #     return reverse("model_detail", kwargs={"pk": self.pk})
+    #     return reverse("costs:index", kwargs={"pk": self.pk})
 
 
 class Income(models.Model):
@@ -49,6 +50,7 @@ class Income(models.Model):
 
     class Meta:
         verbose_name_plural = "Income"
+        ordering = ["date"]
 
     def __str__(self) -> str:
         return self.title

@@ -1,6 +1,9 @@
 from django.urls import path
-# from .views import list_view
+from .views import listView, detailedListView
 
 app_name = "costs"
 
-urlpatterns = []
+urlpatterns = [
+    path("<str:chosen_year>/", listView, name="months-list"),
+    path("<str:chosen_month>/", detailedListView, name="detailed-list"),
+]
