@@ -13,7 +13,9 @@ def listView(request, chosen_year):
         else:
             distinct_months[year].add(month)
     months = distinct_months.get(chosen_year)
-    return render(request,"costs/months-list.html", context={"months": months})
+
+    return render(request, "costs/months-list.html", context={"months": months})
+
 
 def detailedListView(request, chosen_month):
     pass

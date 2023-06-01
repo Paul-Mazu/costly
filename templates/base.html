@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,8 +20,8 @@
     <body>
         <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="">
-                    <img src=""
+                <a class="navbar-brand" href="{% url 'costs:months-list' 2023 %}"> 
+                    <img src="{% static 'logo/piggy-bank.png' %}"
                          alt="Logo"
                          width="30"
                          height="24"
@@ -47,22 +48,22 @@
                                href="#"
                                role="button"
                                data-bs-toggle="dropdown"
-                               aria-expanded="false">Basket</a>
+                               aria-expanded="false">Year</a>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="">Select Year</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item"
-                                       href="">Place your order</a>
-                                </li>
-                                <li>
+                                {% for year in years %}
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'costs:months-list' year %}">{{year}}</a>
+                                        
+                                    </li>
+                                {% endfor %}
+                                
+                                {% comment %} <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
                                     <a class="dropdown-item"
                                        href="">Remove your order</a>
-                                </li>
+                                </li> {% endcomment %}
                             </ul>
                         </li>
                     </ul>
@@ -99,7 +100,7 @@
                 <div class="col-md-4 d-flex align-items-center">
                     <a href=""
                        class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                        <img src="" width="24" height="24">
+                        <img src="{% static 'logo/piggy-bank.png' %}" width="24" height="24"> 
                     </a>
                     <span class="mb-3 mb-md-0 ">&copy; 2023 Pawel Mazurkiewicz</span>
                 </div>
@@ -112,8 +113,7 @@
                     </li>
                     <li class="ms-3">
                         <a class="text-muted" href="https://github.com/Paul-Mazu">
-                            <img src="{% static 'logo/github.png' %}" width="24" height="24">
-                        </a>
+                            <img src="{% static 'logo/github.png' %}" width="24" height="24">                        </a>
                     </li>
                 </ul>
             </footer>
