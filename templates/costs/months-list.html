@@ -5,7 +5,8 @@
     {% for month in months %}
 
         <p>
-        {{month}}
+            <a href="{% url 'costs:detailed-list' requested_year month %}">{{month}}</a>
+            
         </p>
     
     {% endfor %}
