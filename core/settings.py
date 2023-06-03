@@ -65,7 +65,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "costs.context_processors.extras",
+                "costs.context_processors.available_years",
             ],
         },
     },
