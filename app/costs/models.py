@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import date
 from django.urls import reverse
+from django.utils.timezone import now
 
 
 class FixedCosts(models.Model):
@@ -28,7 +28,7 @@ class VariableCosts(models.Model):
     title = models.CharField(max_length=200)
     sume = models.DecimalField(max_digits=11, decimal_places=2)
     notes = models.CharField(max_length=300, blank=True)
-    date = models.DateField(default=date.today())
+    date = models.DateField(default=now)
 
     class Meta:
         verbose_name_plural = "Variable Costs"
@@ -36,10 +36,6 @@ class VariableCosts(models.Model):
 
     def __str__(self) -> str:
         return self.title
-    
-
-    # def get_absolute_url(self):
-    #     return reverse("costs:index", kwargs={"pk": self.pk})
 
 
 class Income(models.Model):
@@ -47,7 +43,7 @@ class Income(models.Model):
     title = models.CharField(max_length=200)
     sume = models.DecimalField(max_digits=11, decimal_places=2)
     notes = models.CharField(max_length=300, blank=True)
-    date = models.DateField(default=date.today())
+    date = models.DateField(default=now)
 
     class Meta:
         verbose_name_plural = "Income"
