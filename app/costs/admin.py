@@ -8,7 +8,6 @@ class IncomeAdmin(admin.ModelAdmin):
 
 class FixedCostsAdmin(admin.ModelAdmin):
     list_display = ("title", "sume")
-    
 
 
 class VariableCostsAdmin(admin.ModelAdmin):
