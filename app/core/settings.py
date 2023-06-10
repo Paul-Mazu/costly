@@ -133,3 +133,6 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ],
 }
+
+# use custom User from account
+AUTH_USER_MODEL = "account.USER"
