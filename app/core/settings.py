@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # my
     "rest_framework",
+    "drf_spectacular",
     "rest_framework.authtoken",
     "costs",
     "account",
@@ -136,3 +137,7 @@ REST_FRAMEWORK = {
 
 # use custom User from account
 AUTH_USER_MODEL = "account.USER"
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
